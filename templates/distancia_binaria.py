@@ -2,7 +2,7 @@ def bin_misma_len(n:int, m:int) -> list[str]:
     '''
     Requiere: n y m > 0
     Devuelve: una lista con la representación binaria de n y m con la 
-    misma len compleada con 0s. La primera posicion de la lista corresponde
+    misma len completada con 0s. La primera posicion de la lista corresponde
     a n y la segunda a m
     '''
     n_bin:str = bin(n).replace('0b', '')
