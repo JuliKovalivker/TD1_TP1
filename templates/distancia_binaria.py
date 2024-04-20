@@ -24,7 +24,6 @@ def aledaños_en_intervalo(n:int, a:int, b:int) -> list[int]:
     '''
     i:int = a
     res:list[int] = []
-    #AROTU HACE EL PREDICADO PERO LLAMANOS POR DS CUANDO LO HAGAS
     while i <= b:
         if son_aledaños(n, i):
             res.append(i)
@@ -42,7 +41,6 @@ def distancia_binaria(n:int, m:int) -> int:
     lista_bin:list[str] = bin_misma_len(n, m)
     n_bin:str = lista_bin[0]
     m_bin:str = lista_bin[1]   
-    #HACER PREDICADOOOOOOOOO (AROTU) 
     while i < len(n_bin):
         if n_bin[i] != m_bin[i]:
             res += 1
@@ -89,5 +87,3 @@ def densidad_intervalo(n:int, a:int, b:int) -> float:
     res:float = cant_aledaños(n, a, b) / (b - a + 1)
     res = round(res, 5)
     return res
-
-print(densidad_intervalo(1,2,3))
