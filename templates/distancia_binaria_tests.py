@@ -4,6 +4,16 @@ import unittest
 from distancia_binaria import distancia_binaria, son_aledaños, aledaños_menores, cant_aledaños, densidad_intervalo, bin_misma_len, aledaños_en_intervalo
 
 #####################################################################
+class TestDistanciaBinaria(unittest.TestCase):
+    # Testear cuando la distancia binaria es 0
+    def test_distancia_cero(self):
+        self.assertEqual(distancia_binaria(1,1), 0)
+        self.assertEqual(distancia_binaria(120,120), 0)
+        
+    # Testear distancia binaria entre numeros con diferente cantidad de digitos
+    def test_distintos_digitos(self):
+        self.assertEqual(distancia_binaria(1, 128), 2)
+        self.assertEqual(distancia_binaria(256, 3), 3)
 
 # Tests para la función distancia_binaria()
 class TestDistanciaBinaria(unittest.TestCase):
