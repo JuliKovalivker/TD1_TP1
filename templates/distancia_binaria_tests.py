@@ -1,7 +1,7 @@
 import unittest
 
 # Se importa el código a testear.
-from distancia_binaria import distancia_binaria, son_aledaños, aledaños_menores, cant_aledaños, densidad_intervalo, bin_misma_len, aledaños_en_intervalo
+from distancia_binaria import distancia_binaria, son_aledaños, aledaños_menores, cant_aledaños, densidad_intervalo, bin_misma_len, aledaños_en_intervalo, formatear_lista_numeros
 
 #####################################################################
 
@@ -26,6 +26,7 @@ class TestDistanciaBinaria(unittest.TestCase):
         expected_output:int = 8
         self.assertEqual(output,expected_output)
 
+
 # Tests para la función son_aledaños()
 class TestSonAledanos(unittest.TestCase):
 
@@ -41,6 +42,7 @@ class TestSonAledanos(unittest.TestCase):
         expected_output:bool = False
         self.assertEqual(output,expected_output)
 
+
 # Tests para la función aledaños_menores()
 class TestAledanosMenores(unittest.TestCase):
 
@@ -55,6 +57,7 @@ class TestAledanosMenores(unittest.TestCase):
         output:list[int] = aledaños_menores(11)
         expected_output:list[int] = [3,9,10]
         self.assertEqual(output,expected_output)
+
 
 # Tests para la función cant_aledaños()
 class TestCantidadAledanos(unittest.TestCase):
@@ -77,11 +80,18 @@ class TestCantidadAledanos(unittest.TestCase):
         expected_output:int = 3
         self.assertEqual(output,expected_output)
 
+    # Probar un número mayor que el intervalo, con aledaños en el intervalo
+    def test_mayor(self):
+        output:int = cant_aledaños(50,6,31)
+        expected_output:int = 1
+        self.assertEqual(output,expected_output)
+
     # Probar un número cuyos aledaños sean el último, y primer número del intervalo
     def test_bordes(self):
         output:int = cant_aledaños(33,1,32)
         expected_output:int = 2
         self.assertEqual(output,expected_output)
+
 
 # Tests para la función densidad_intervalo()
 class TestDensidadIntervalo(unittest.TestCase):
@@ -103,6 +113,7 @@ class TestDensidadIntervalo(unittest.TestCase):
         output:float = densidad_intervalo(32,1,31)
         expected_output:float = 0.0
         self.assertEqual(output,expected_output)
+    
 
 # Tests para la función bin_misma_len()
 class TestBinMismaLen(unittest.TestCase):
@@ -121,18 +132,14 @@ class TestBinMismaLen(unittest.TestCase):
 
     # Probar 2 números con diferentes cantidades de bits, pero arrancando con el mayor
     def test_distina_len_mayor_primero(self):
-        output:list[str] = bin_misma_len(8,1)
-        expected_output:list[str] = ['1000','0001']
+        output:list[str] = bin_misma_len(16,3)
+        expected_output:list[str] = ['10000','00011']
         self.assertEqual(output,expected_output)
 
-    # Probar el mismo número, 2 veces
-    def test_distina_len(self):
-        output:list[str] = bin_misma_len(2,2)
-        expected_output:list[str] = ['10','10']
-        self.assertEqual(output,expected_output)
 
 # Tests para la función aledaños_en_intervalo()
 class TestAledanosEnIntervalo(unittest.TestCase):
+
     # Probar ningún aledaño en el intervalo
     def test_ninguno(self):
         output:list[int] = aledaños_en_intervalo(32,1,31)
@@ -157,5 +164,38 @@ class TestAledanosEnIntervalo(unittest.TestCase):
         expected_output:list[int] = [1,32]
         self.assertEqual(output,expected_output)
 
+
+class TestFormatearListaNumeros(unittest.TestCase):
+
+    # Probar con lista vacia
+    def test_vacio(self):
+        output:str = formatear_lista_numeros([])
+        expected_output:str = ''
+        self.assertEqual(output, expected_output)
+    
+    # Probar con lista cuya longitud es 1
+    def test_len_uno(self):
+        output:str = formatear_lista_numeros([1])
+        expected_output:str = '1'
+        self.assertEqual(output, expected_output)
+        
+    # Probar con lista cuya longitud es 2
+    def test_len_dos(self):
+        output:str = formatear_lista_numeros([1, 2])
+        expected_output:str = '1 y 2'
+        self.assertEqual(output, expected_output)
+        
+    # Probar con lista cuya longitud es 3
+    def test_len_tres(self):
+        output:str = formatear_lista_numeros([1, 2, 3])
+        expected_output:str = '1, 2 y 3'
+        self.assertEqual(output, expected_output)
+        
+    # Probar con lista cuya longitud es muy larga
+    def test_len_larga(self):
+        output:str = formatear_lista_numeros([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        expected_output:str = '1, 2, 3, 4, 5, 6, 7, 8, 9 y 10'
+        self.assertEqual(output, expected_output)
+        
 
 unittest.main()
