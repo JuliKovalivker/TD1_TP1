@@ -1,5 +1,5 @@
 from distancia_binaria import distancia_binaria, son_aledaños, \
-                   aledaños_menores, cant_aledaños, densidad_intervalo
+                   aledaños_menores, cant_aledaños, densidad_intervalo, formatear_lista_numeros
 
 def elegir_funcion() -> str:
     '''
@@ -56,8 +56,7 @@ while not finalizar:
         if res == []:
             print('El número '+ n_str + ' no tiene vecinos aledaños menores')
         else:
-            # Formatear array
-            print('Los números ' + str(res) + ' son los vecinos aledaños a ' + n_str + ' menores que ' + n_str)
+            print('Los números ' + formatear_lista_numeros(res) + ' son los vecinos aledaños a ' + n_str + ' menores que ' + n_str)
 
     elif opcion_seleccionada == 'D':
         n_str:str = input('Ingrese n: ')

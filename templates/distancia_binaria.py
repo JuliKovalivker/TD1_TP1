@@ -87,3 +87,24 @@ def densidad_intervalo(n:int, a:int, b:int) -> float:
     res:float = cant_aledaños(n, a, b) / (b - a + 1)
     res = round(res, 5)
     return res
+
+def formatear_lista_numeros(lista:list[int]) -> str:
+    '''
+    Requiere: nada
+    Devuelve: Un string representando los valores de la lista sin
+    y el último valor separado por 'y'. [1,2,3] -> "1, 2 y 3"
+    '''
+    res:str = ''
+    i:int = 0
+    while i < len(lista)-1:
+        res = res + str(lista[i])
+        if(i != len(lista)-2): # Si estamos en el último valor, no agregar ', '
+            res += ', '
+        i+=1
+        
+    if len(lista) > 1 : # Si hay más de un valor, agregar ' y '
+        res += ' y ' + str(lista[-1])
+    else:               # Si hay solo un valor
+        res = str(lista[0])
+
+    return res
