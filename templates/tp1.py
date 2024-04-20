@@ -37,7 +37,7 @@ while not finalizar:
         n_str:str = input('Ingrese n: ')
         m_str:str = input('Ingrese m: ')
         res:int = distancia_binaria(int(n_str), int(m_str))
-        print('La distancia binaria entre ' + n_str + ' y ' + m_str + ' es: ' + str(res))
+        print('La distancia binaria entre ' + n_str + ' y ' + m_str + ' es ' + str(res))
 
 
     elif opcion_seleccionada == 'B':
@@ -56,18 +56,16 @@ while not finalizar:
         if res == []:
             print('El número '+ n_str + ' no tiene vecinos aledaños menores')
         else:
-            print('Los vecinos aledaños de ' + n_str + ' son: ' + str(res))
-
+            # Formatear array
+            print('Los números ' + str(res) + ' son los vecinos aledaños a ' + n_str + ' menores que ' + n_str)
 
     elif opcion_seleccionada == 'D':
         n_str:str = input('Ingrese n: ')
         a_str:str = input('Ingrese a: ')
         b_str:str = input('Ingrese b: ')
         res:int = cant_aledaños(int(n_str), int(a_str), int(b_str))
-        if not res:
-            print('La cantidad de aledaños de ' + n_str + ' en el intervalo [' + a_str + ', ' + b_str + '] son: ' + res)
-        else:
-            print('No hay aledaños de ' + n_str + ' en el intervalo [' + a_str + ', ' + b_str + ']')
+        
+        print(str(res) + ' números en [' + a_str + ', ' + b_str + '] son aledaños a ' + n_str)
 
 
     elif opcion_seleccionada == 'E':
@@ -75,7 +73,7 @@ while not finalizar:
         a_str:str = input('Ingrese a: ')
         b_str:str = input('Ingrese b: ')
         res:float = densidad_intervalo(int(n_str), int(a_str), int(b_str))
-        print('La densidad binario en el intervalo [' + a_str + ', ' + b_str + '] es aproximadamente: ' + str(res))
+        print('La densidad binaria de ' + n_str + ' en [' + a_str + ', ' + b_str + '] es aproximadamente ' + str(res))
         
 
     elif opcion_seleccionada == 'F':
