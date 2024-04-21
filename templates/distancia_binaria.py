@@ -15,21 +15,6 @@ def bin_misma_len(n:int, m:int) -> list[str]:
     res:list[str] = [n_bin, m_bin]
     return res
 
-
-def aledaños_en_intervalo(n:int, a:int, b:int) -> list[int]:
-    '''
-    Requiere: n > 0, a > 0, a < b
-    Devuelve: Los numeros en el intervalo [a, b] que son vecinos aledaños a n.
-    '''
-    res:list[int] = []
-    i:int = a    
-    while i <= b:
-        if son_aledaños(n, i):
-            res.append(i)
-        i += 1
-    return res
-
-
 def distancia_binaria(n:int, m:int) -> int:
     '''
     Requiere: n y m > 0
@@ -46,7 +31,6 @@ def distancia_binaria(n:int, m:int) -> int:
         i += 1
     return res
 
-
 def son_aledaños(n:int, m:int) -> bool:
     '''
     Requiere: n y m > 0
@@ -57,6 +41,18 @@ def son_aledaños(n:int, m:int) -> bool:
         res = True
     return res
 
+def aledaños_en_intervalo(n:int, a:int, b:int) -> list[int]:
+    '''
+    Requiere: n > 0, a > 0, a < b
+    Devuelve: Los numeros en el intervalo [a, b] que son vecinos aledaños a n.
+    '''
+    res:list[int] = []
+    i:int = a    
+    while i <= b:
+        if son_aledaños(n, i):
+            res.append(i)
+        i += 1
+    return res
 
 def aledaños_menores(n:int) -> list[int]:
     '''
@@ -66,7 +62,6 @@ def aledaños_menores(n:int) -> list[int]:
     res:list[int] = aledaños_en_intervalo(n, 1, n-1)
     return res
 
-
 def cant_aledaños(n:int, a:int, b:int) -> int:
     '''
     Requiere: n > 0, a > 0, a < b
@@ -74,7 +69,6 @@ def cant_aledaños(n:int, a:int, b:int) -> int:
     '''
     res:int = len(aledaños_en_intervalo(n, a, b))
     return res
-
 
 def densidad_intervalo(n:int, a:int, b:int) -> float:
     '''
@@ -84,7 +78,6 @@ def densidad_intervalo(n:int, a:int, b:int) -> float:
     res:float = cant_aledaños(n, a, b) / (b - a + 1) # (cantidad de vecinos aledaños en [a, b]) / len(intervalo)
     res = round(res, 5)
     return res
-
 
 def formatear_lista_numeros(lista:list[int]) -> str:
     '''
