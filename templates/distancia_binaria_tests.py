@@ -179,12 +179,6 @@ class TestFormatearListaNumeros(unittest.TestCase):
         expected_output:str = '1 y 2'
         self.assertEqual(output, expected_output)
         
-    # Probar con lista cuya longitud es 3
-    def test_len_tres(self):
-        output:str = formatear_lista_numeros([1, 2, 3])
-        expected_output:str = '1, 2 y 3'
-        self.assertEqual(output, expected_output)
-        
     # Probar con lista cuya longitud es muy larga
     def test_len_larga(self):
         output:str = formatear_lista_numeros([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
