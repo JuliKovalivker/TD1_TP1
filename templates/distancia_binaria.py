@@ -89,7 +89,7 @@ def formatear_lista_numeros(lista:list[int]) -> str:
     i:int = 0 
     if len(lista) == 1:
         res = str(lista[0])
-    elif len(lista) != 0:
+    elif len(lista) > 1:
         while i < len(lista)-2:
             res = res + str(lista[i]) + ', '
             i = i + 1
