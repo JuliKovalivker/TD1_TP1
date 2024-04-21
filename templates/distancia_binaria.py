@@ -62,7 +62,6 @@ def aledaños_menores(n:int) -> list[int]:
     res:list[int] = aledaños_en_intervalo(n, 1, n-1)
     return res
 
-
 def cant_aledaños(n:int, a:int, b:int) -> int:
     '''
     Requiere: n > 0, a > 0, a < b
@@ -70,7 +69,6 @@ def cant_aledaños(n:int, a:int, b:int) -> int:
     '''
     res:int = len(aledaños_en_intervalo(n, a, b))
     return res
-
 
 def densidad_intervalo(n:int, a:int, b:int) -> float:
     '''
@@ -80,7 +78,6 @@ def densidad_intervalo(n:int, a:int, b:int) -> float:
     res:float = cant_aledaños(n, a, b) / (b - a + 1) # (cantidad de vecinos aledaños en [a, b]) / len(intervalo)
     res = round(res, 5)
     return res
-
 
 def formatear_lista_numeros(lista:list[int]) -> str:
     '''
