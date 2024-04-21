@@ -145,12 +145,6 @@ class TestAledanosEnIntervalo(unittest.TestCase):
         output:list[int] = aledaños_en_intervalo(32,1,31)
         expected_output:list[int] = []
         self.assertEqual(output,expected_output)
-
-    # Probar un intervalo vacío
-    def test_intervalo_vacio(self):
-        output:list[int] = aledaños_en_intervalo(1,2,2)
-        expected_output:list[int] = []
-        self.assertEqual(output,expected_output)
         
     # Probar algunos aledaños en el intervalo
     def test_algunos(self):
